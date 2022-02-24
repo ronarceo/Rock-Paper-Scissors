@@ -10,10 +10,10 @@ let computerPlay = function() {
 const computerSelection = computerPlay();
 
 // displays computer's choice in the console
-console.log(computerSelection);
+console.log("Computer chose: " + computerSelection);
 
 // variable to store user's choice from a prompt
 const playerSelection = window.prompt("Enter R for rock, P for paper, or S for scissors");
 
 // displays user's choice in the console
-console.log(playerSelection);
+console.log("Player chose: " + playerSelection);
