@@ -13,7 +13,24 @@ const computerSelection = computerPlay();
 console.log("Computer chose: " + computerSelection);
 
 // variable to store user's choice from a prompt
-const playerSelection = window.prompt("Enter R for rock, P for paper, or S for scissors");
+const playerSelection = window.prompt("Enter R for rock, P for paper, or S for scissors").toUpperCase();
 
 // displays user's choice in the console
 console.log("Player chose: " + playerSelection);
+
+// function to play a round of rock, paper, scissors
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        alert("It's a tie");
+    } else if (
+        (playerSelection === "R" && computerSelection === "S") ||
+        (playerSelection === "P" && computerSelection === "R") ||
+        (playerSelection === "S" && computerSelection === "P")
+    ) {
+        alert("You win");
+    } else {
+        alert("You lose");
+    }
+};
+
+playRound(playerSelection, computerSelection);
