@@ -1,5 +1,7 @@
 let playerScore = document.querySelector("#playerScore");
 let computerScore = document.querySelector("#computerScore");
+let playerSign = document.querySelector("#playerSign");
+let computerSign = document.querySelector("#computerSign")
 
 // function to play a round of rock, paper, scissors
 function playRound(playerSelection) {
@@ -14,11 +16,31 @@ function playRound(playerSelection) {
     // variable to store computer's random choice
     const computerSelection = computerPlay();
 
-    // displays computer's choice in the console
-    console.log("Computer chose: " + computerSelection);
+    // displays computer's choice
+    switch(computerSelection) {
+        case "rock":
+            computerSign.innerText = "✊";
+            break;
+        case "paper":
+            computerSign.innerText = "✋";
+            break;
+        case "scissors":
+            computerSign.innerText = "✌";
+            break;
+    }
 
-    // displays user's choice in the console
-    console.log("Player chose: " + playerSelection);
+    // displays user's choice
+    switch(playerSelection) {
+        case "rock":
+            playerSign.innerText = "✊";
+            break;
+        case "paper":
+            playerSign.innerText = "✋";
+            break;
+        case "scissors":
+            playerSign.innerText = "✌";
+            break;
+    }
 
     // if statement to determine win, loss, or tie
     if (playerSelection === computerSelection) {
