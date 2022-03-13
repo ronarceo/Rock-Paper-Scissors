@@ -21,9 +21,9 @@ function playRound(playerSelection) {
     if (playerSelection === computerSelection) {
         alert("It's a tie");
     } else if (
-        (playerSelection === "R" && computerSelection === "S") ||
-        (playerSelection === "P" && computerSelection === "R") ||
-        (playerSelection === "S" && computerSelection === "P")
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
     ) {
         alert("You win");
     } else {
