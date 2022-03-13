@@ -1,3 +1,6 @@
+let playerScore = document.querySelector("#playerScore");
+let computerScore = document.querySelector("#computerScore");
+
 // function to play a round of rock, paper, scissors
 function playRound(playerSelection) {
     // array of choices for the computer
@@ -25,16 +28,24 @@ function playRound(playerSelection) {
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")
     ) {
-        alert("You win");
+        playerScore.innerText = parseInt(playerScore.innerText) + 1;
     } else {
-        alert("You lose");
+        computerScore.innerText = parseInt(computerScore.innerText) + 1;
+    }
+
+    if (playerScore.innerText == 5) {
+        alert("You won!")
+    }
+
+    if (computerScore.innerText == 5) {
+        alert("You lost!")
     }
 };
 
-const btns = document.querySelectorAll('button')
+const btns = document.querySelectorAll("button")
 
 btns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener("click", () => {
         playRound(btn.id);
     });
 });
