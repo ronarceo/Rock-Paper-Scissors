@@ -56,18 +56,36 @@ function playRound(playerSelection) {
     }
 
     if (playerScore.innerText == 5) {
-        alert("You won!")
+        endgameMsg.textContent = 'You won!'
+        endgameModal.classList.add('active');
     }
 
     if (computerScore.innerText == 5) {
-        alert("You lost!")
+        endgameMsg.textContent = 'You lost!'
+        endgameModal.classList.add('active');
     }
 };
 
-const btns = document.querySelectorAll("button")
+const btns = document.querySelectorAll(".btn")
 
 btns.forEach(btn => {
     btn.addEventListener("click", () => {
         playRound(btn.id);
     });
 });
+
+const endgameModal = document.querySelector("#endgameModal");
+const endgameMsg = document.querySelector("#endgameMsg");
+const restartBtn = document.querySelector("#restartBtn");
+
+restartBtn.addEventListener("click", () => {
+    restartGame();
+})
+
+function restartGame() {
+    playerScore.innerText = '0';
+    computerScore.innerText = '0';
+    playerSign.textContent = '❔';
+    computerSign.textContent = '❔';
+    endgameModal.classList.remove('active');
+}
