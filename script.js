@@ -1,7 +1,8 @@
 let playerScore = document.querySelector("#playerScore");
 let computerScore = document.querySelector("#computerScore");
 let playerSign = document.querySelector("#playerSign");
-let computerSign = document.querySelector("#computerSign")
+let computerSign = document.querySelector("#computerSign");
+let info = document.querySelector("#info")
 
 // function to play a round of rock, paper, scissors
 function playRound(playerSelection) {
@@ -44,15 +45,17 @@ function playRound(playerSelection) {
 
     // if statement to determine win, loss, or tie
     if (playerSelection === computerSelection) {
-        alert("It's a tie");
+        info.innerText = "It's a tie!";
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")
     ) {
         playerScore.innerText = parseInt(playerScore.innerText) + 1;
+        info.innerText = "You won a point!";
     } else {
         computerScore.innerText = parseInt(computerScore.innerText) + 1;
+        info.innerText = "Computer won a point!";
     }
 
     if (playerScore.innerText == 5) {
@@ -83,6 +86,7 @@ restartBtn.addEventListener("click", () => {
 })
 
 function restartGame() {
+    info.innerText = "Win 5 rounds before the computer to win the game.";
     playerScore.innerText = '0';
     computerScore.innerText = '0';
     playerSign.textContent = '❔';
